@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../tile/drawer_tile.dart';
+
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
 
@@ -25,10 +27,10 @@ class CustomDrawer extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(bottom: 8.0),
                 padding: const EdgeInsets.fromLTRB(0.0, 16.0, 16.0, 8.0),
-                height: 170.0,
+                height: 120.0,
                 child: Stack(
-                  children: const [
-                    Positioned(
+                  children: [
+                    const Positioned(
                         top: 8.0,
                         left: 0.0,
                         child: Text(
@@ -37,10 +39,37 @@ class CustomDrawer extends StatelessWidget {
                             fontSize: 34.0,
                             fontWeight: FontWeight.bold,
                           ),
-                        ))
+                        )),
+                    Positioned(
+                        bottom: 0.0,
+                        left: 0.0,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Olá',
+                              style: TextStyle(
+                                  fontSize: 18.0, fontWeight: FontWeight.bold),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Text(
+                                'Entre ou cadastre-se',
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )
+                          ],
+                        )),
                   ],
                 ),
-              )
+              ),
+              const Divider(),
+              DrawerTile(Icons.home, 'Início'),
+              
             ],
           )
         ],
