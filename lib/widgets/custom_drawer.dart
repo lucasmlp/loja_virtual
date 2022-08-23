@@ -5,7 +5,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import '../tile/drawer_tile.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({Key? key}) : super(key: key);
+  final PageController pageController;
+
+  CustomDrawer(this.pageController);
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +70,7 @@ class CustomDrawer extends StatelessWidget {
                 ),
               ),
               const Divider(),
-              DrawerTile(Icons.home, 'Início'),
-              
+              DrawerTile(Icons.home, 'Início', pageController, 0),
             ],
           )
         ],
